@@ -1,0 +1,93 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.dzenm.composeui'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.dzenm.composeui"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        // compose 与 kotlin 的兼容性版本对照表
+        // https://developer.android.google.cn/jetpack/androidx/releases/compose-kotlin
+        kotlinCompilerExtensionVersion '1.4.4'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    // Compose版本发布日志
+    // https://developer.android.google.cn/jetpack/androidx/versions/stable-channel
+    // Ktx Core
+    implementation 'androidx.core:core-ktx:1.9.0'
+    // 与Activity结合使用
+    // Kotlin
+    implementation "androidx.activity:activity-ktx:1.7.0"
+    implementation 'androidx.activity:activity-compose:1.7.0'
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    // ViewModel utilities for Compose
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
+    // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
+    // 与Lifecycle结合使用 Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+    // Lifecycle utilities for Compose
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.1"
+
+    // Compose UI
+    implementation "androidx.compose.ui:ui:$compose_ui_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_version"
+    // 与Foundation结合使用
+    implementation "androidx.compose.foundation:foundation:$compose_ui_version"
+    implementation "androidx.compose.foundation:foundation-layout:$compose_ui_version"
+    // 与Material结合使用
+    implementation "androidx.compose.material:material:$compose_ui_version"
+    implementation "androidx.compose.material:material-icons-core:$compose_ui_version"
+    implementation "androidx.compose.material:material-icons-extended:$compose_ui_version"
+    // 与Runtime 结合使用
+    implementation "androidx.compose.runtime:runtime:1.4.1"
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_ui_version"
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+}
