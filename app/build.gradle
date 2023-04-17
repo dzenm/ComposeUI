@@ -84,6 +84,11 @@ dependencies {
     implementation "androidx.compose.runtime:runtime:1.4.1"
     implementation "androidx.compose.runtime:runtime-livedata:$compose_ui_version"
 
+    // Compose ViewPager
+    implementation "com.google.accompanist:accompanist-pager:0.24.2-alpha"
+    // Compose ViewPager指示器
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.24.2-alpha"
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
