@@ -1,20 +1,10 @@
-package com.dzenm.composeui
+package com.dzenm.composeui.screen.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainModel : ViewModel() {
-
-    private var count = 0
-    private val counter = MutableLiveData<Int>()
-
-    fun increase() {
-        counter.value = ++count
-    }
-
-    val counterLiveData: LiveData<Int>
-        get() = counter
 
     // 选中的标签
     private val _selectedIndex = MutableLiveData<Int>()
